@@ -11,8 +11,8 @@ const CreatePost = () =>{
 
    const handlePostSubmit =() => {
        event.preventDefault();
-      const userId        =  userIdElement.current.value;
-      const postTitle     =  postTitleElement.current.value;
+      const userId        = userIdElement.current.value;
+      const postTitle     = postTitleElement.current.value;
       const postContent   = postContentElement.current.value;
       const postReactions = postReactionsElement.current.value;
       const postHashTags  = postHashTagsElement.current.value.split(" ") 

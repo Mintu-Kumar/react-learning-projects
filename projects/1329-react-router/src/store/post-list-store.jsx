@@ -21,11 +21,12 @@ const postListReducer = (currPostList, action) =>{
 }
 
 const PostListProvider = ({children}) => {
-  const [postList, dispatchPostList] =  useReducer(postListReducer,[]);
+  const [postList, dispatchPostList] =  useReducer(postListReducer,[]);  
+  // jaise post list m change hoga useReducer  redeclare karega ki post change hua h and fir se postList ko repaint kargea
   
   const addPost = (post) =>{
-     dispatchPostList({
-      type:'ADD_POST',
+     dispatchPostList({    // jaise hi dispatch karenge ye action jayega  post list reducer ke pass
+      type:'ADD_POST',     // and action ke based pe code execute hoga
       payload:post,
      })
       

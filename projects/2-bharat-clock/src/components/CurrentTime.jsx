@@ -4,7 +4,8 @@ let CurrentTime = ()=>{
     const [time, setTime] =  useState(new Date());
 
     useEffect(()=>{
-        const intercalId = setInterval(()=>{
+        const intercalId = setInterval(()=>{    
+            // setInterval 2 argument leta h 1 method and 2usra interval time
             setTime(new Date())
         },1000)
 

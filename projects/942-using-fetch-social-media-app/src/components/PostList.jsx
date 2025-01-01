@@ -6,8 +6,8 @@ const PostList = () =>{
     const {postList,addInitialPosts} = useContext(PostListData);
 
     useEffect(()=>{
-      const controller  =new AbortController();
-      const signal =  controller.signal;
+      const controller  =new AbortController(); // use effect  m jb bhi fetch use krte h to hme ideally isko abort krna chahiye jb api ka result hme mil jaye jo hm return m kr rhe h
+      const signal =  controller.signal;   // isko hm useEffect clean up kahte h
       fetch('https://dummyjson.com/posts',{signal})
       .then(res => res.json())
       .then(data =>addInitialPosts(data.posts));
