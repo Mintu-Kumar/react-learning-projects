@@ -2,20 +2,10 @@ import { useContext, useEffect } from "react";
 import Post from "./post";
 import {PostList as PostListData} from "../store/post-list-store";
 import WelcomeMessage from "./welcomeMessage";
+import { useLoaderData } from "react-router-dom";
 const PostList = () =>{
-    const {postList,addInitialPosts} = useContext(PostListData);
-
-   /* useEffect(()=>{
-      const controller  =new AbortController();
-      const signal =  controller.signal;
-      fetch('https://dummyjson.com/posts',{signal})
-      .then(res => res.json())
-      .then(data =>addInitialPosts(data.posts));
-
-      return(()=>{
-        controller.abort();
-      })
-    },[])*/
+   // const {postList} = useContext(PostListData);
+    const postList= useLoaderData();
     return(
       <>
       {postList.length ===0 && <WelcomeMessage/>}
@@ -23,6 +13,13 @@ const PostList = () =>{
        
       </>
     );
+
+};
+
+export const postLoader = ()=> {
+ return  fetch('https://dummyjson.com/posts')
+  .then(res => res.json())
+  .then(data =>{return (data.posts)});
 }
 
 export default PostList;

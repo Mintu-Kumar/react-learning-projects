@@ -1,4 +1,5 @@
-import { createContext, useReducer } from "react";
+import { createContext, useReducer,useEffect  } from "react";
+
 
 export const PostList = createContext({
     postList : [],
@@ -48,6 +49,17 @@ const PostListProvider = ({children}) => {
     })
   
   }
+  // useEffect(()=>{
+  //   const controller  =new AbortController();
+  //   const signal =  controller.signal;
+  //   fetch('https://dummyjson.com/posts',{signal})
+  //   .then(res => res.json())
+  //   .then(data =>addInitialPosts(data.posts));
+
+  //   return(()=>{
+  //     controller.abort();
+  //   })
+  // },[])
 
   return(
    <PostList.Provider value={{
